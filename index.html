@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🛰️ AI Satellite FMEA Assistant</title>
   
+  <!-- n8n Chat Widget Styles -->
   <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
   
   <style>
@@ -16,9 +17,13 @@
       color: white;
       text-align: center;
     }
-    .container { max-width: 900px; margin: 0 auto; }
+    h1 { margin-bottom: 10px; }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
     #chat-container {
-      height: 680px;
+      height: 700px;
       border: 1px solid #334155;
       border-radius: 12px;
       overflow: hidden;
@@ -30,7 +35,7 @@
 <body>
   <div class="container">
     <h1>🛰️ AI Satellite FMEA Assistant</h1>
-    <p>ECSS-Q-ST-30-02C Powered • Satellite Failure Mode Analysis</p>
+    <p>ECSS-Q-ST-30-02C Powered • Failure Mode & Effects Analysis</p>
     
     <div id="chat-container"></div>
   </div>
@@ -39,12 +44,12 @@
     import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
     createChat({
-      webhookUrl: "https://ian191.app.n8n.cloud/webhook/188eeb24-a13e-422f-a0c4-ab297cd8ab04",   // ← Use this (without /chat)
+      webhookUrl: "https://ian191.app.n8n.cloud/webhook/188eeb24-a13e-422f-a0c4-ab297cd8ab04",  // ← Put your Webhook URL here (without /chat)
       container: "#chat-container",
       theme: "dark",
       title: "Satellite FMEA Assistant",
       subtitle: "Describe any satellite anomaly",
-      initialMessage: "Hello! I'm ready to analyze satellite failures using ECSS standards."
+      initialMessage: "Hello! Describe a satellite anomaly and I'll perform an FMEA analysis."
     });
   </script>
 </body>
