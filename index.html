@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🛰️ AI Satellite FMEA Assistant</title>
+  <script src="https://cdn.jsdelivr.net/npm/@n8n/chat@latest/dist/chat.umd.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #0f172a; color: white; }
+    h1 { text-align: center; }
+  </style>
+</head>
+<body>
+  <h1>🛰️ AI Satellite FMEA Assistant</h1>
+  <p style="text-align:center">ECSS-Q-ST-30-02C Powered Failure Mode Analysis Tool</p>
+
+  <div id="chat"></div>
+
+  <script>
+    const chat = new window.Chat({
+      webhookUrl: "https://ian191.app.n8n.cloud/webhook/188eeb24-a13e-422f-a0c4-ab297cd8ab04/chat",   // ← Paste your Chat URL here
+      title: "Satellite FMEA Assistant",
+      subtitle: "Ask about any satellite anomaly",
+      theme: "dark"
+    });
+
+    chat.mount("#chat");
+  </script>
+</body>
+</html>
