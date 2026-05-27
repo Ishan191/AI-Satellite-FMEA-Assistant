@@ -36,19 +36,13 @@
 
   <div id="chat-container"></div>
 
-  <script type="module">
-    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
-
-    createChat({
+  <script src="https://cdn.jsdelivr.net/npm/@n8n/chat@latest/dist/chat.umd.js"></script>
+  <script>
+    window.Chat.create({
       webhookUrl: "https://ian191.app.n8n.cloud/webhook/188eeb24-a13e-422f-a0c4-ab297cd8ab04",
       container: "#chat-container",
       theme: "dark",
-      title: "FMEA Assistant",
-      subtitle: "Describe any satellite anomaly",
-      initialMessage: "Hello! I'm ready to perform FMEA analysis.\n\nTry: Sudden battery voltage drop during eclipse",
-      showHeader: false,
-      width: "100%",
-      height: "100%"
+      initialMessage: "Hello! Describe a satellite anomaly..."
     });
   </script>
 </body>
