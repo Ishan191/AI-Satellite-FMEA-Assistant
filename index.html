@@ -4,27 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>🛰️ AI Satellite FMEA Assistant</title>
-  <script src="https://cdn.jsdelivr.net/npm/@n8n/chat@latest/dist/chat.umd.js"></script>
+  
+  <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+  
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 20px; background: #0f172a; color: white; }
-    h1 { text-align: center; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background: #0f172a;
+      color: white;
+      text-align: center;
+    }
+    .container { max-width: 900px; margin: 0 auto; }
+    #chat-container {
+      height: 680px;
+      border: 1px solid #334155;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
   </style>
 </head>
 <body>
-  <h1>🛰️ AI Satellite FMEA Assistant</h1>
-  <p style="text-align:center">ECSS-Q-ST-30-02C Powered Failure Mode Analysis Tool</p>
+  <div class="container">
+    <h1>🛰️ AI Satellite FMEA Assistant</h1>
+    <p>ECSS-Q-ST-30-02C Powered • Satellite Failure Mode Analysis</p>
+    
+    <div id="chat-container"></div>
+  </div>
 
-  <div id="chat"></div>
+  <script type="module">
+    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
 
-  <script>
-    const chat = new window.Chat({
-      webhookUrl: "https://ian191.app.n8n.cloud/webhook-test/08be7431-1a0f-42b3-8ebb-2e21631f2d29",   // ← Paste your Chat URL here
+    createChat({
+      webhookUrl: "https://ian191.app.n8n.cloud/webhook/188eeb24-a13e-422f-a0c4-ab297cd8ab04",   // ← Use this (without /chat)
+      container: "#chat-container",
+      theme: "dark",
       title: "Satellite FMEA Assistant",
-      subtitle: "Ask about any satellite anomaly",
-      theme: "dark"
+      subtitle: "Describe any satellite anomaly",
+      initialMessage: "Hello! I'm ready to analyze satellite failures using ECSS standards."
     });
-
-    chat.mount("#chat");
   </script>
 </body>
 </html>
