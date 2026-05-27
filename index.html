@@ -8,37 +8,48 @@
   <link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
   
   <style>
-    body {
-      font-family: Arial, sans-serif;
+    * {
       margin: 0;
-      padding: 40px 20px;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
       background: #0f172a;
       color: white;
-      text-align: center;
+      height: 100vh;
+      overflow: hidden;
     }
-    h1 { font-size: 2.5rem; margin-bottom: 10px; }
-    p { color: #94a3b8; }
+    .header {
+      text-align: center;
+      padding: 20px;
+      background: #1e2937;
+      border-bottom: 1px solid #334155;
+    }
+    #chat {
+      height: calc(100vh - 80px);
+      width: 100%;
+    }
   </style>
 </head>
 <body>
-  <h1>🛰️ AI Satellite FMEA Assistant</h1>
-  <p>ECSS-Q-ST-30-02C • Powered by n8n</p>
-  
-  <p style="margin-top: 50px; color: #64748b;">
-    Click the chat bubble in the bottom right to start analyzing satellite failures
-  </p>
+  <div class="header">
+    <h1>🛰️ AI Satellite FMEA Assistant</h1>
+    <p>ECSS-Q-ST-30-02C • Powered by n8n</p>
+  </div>
 
-  <script type="module">
-    import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+  <div id="chat"></div>
 
-    createChat({
-      webhookUrl: "https://ian191.app.n8n.cloud/webhook/188eeb24-a13e-422f-a0c4-ab297cd8ab04", 
-      mode: "window",           // ← Floating bubble (what you want)
-      title: "Satellite FMEA Assistant",
-      subtitle: "Describe any anomaly",
-      initialMessage: "Hello! I'm ready to perform FMEA analysis. Describe a satellite anomaly.",
+  <script src="https://cdn.jsdelivr.net/npm/@n8n/chat@latest/dist/chat.umd.js"></script>
+  <script>
+    window.Chat.create({
+      webhookUrl: "https://ian191.app.n8n.cloud/webhook/188eeb24-a13e-422f-a0c4-ab297cd8ab04",
+      container: "#chat",
       theme: "dark",
-      position: "bottom-right"
+      title: "Satellite FMEA Assistant",
+      subtitle: "Describe any satellite anomaly for FMEA analysis",
+      initialMessage: "Hello! I'm ready to analyze satellite failures.\n\nExample: 'Sudden voltage drop in battery during eclipse'",
+      showHeader: false
     });
   </script>
 </body>
